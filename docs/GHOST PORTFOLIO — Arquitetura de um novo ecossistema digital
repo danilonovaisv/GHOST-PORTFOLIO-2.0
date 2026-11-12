@@ -1,0 +1,1363 @@
+GHOST PORTFOLIO — Arquitetura de um novo ecossistema digital
+
+Projeto: Danilo Novais — Portfolio Rebuild
+Codinome: GHOST PORTFOLIO 2.0
+Abordagem: Agentic Engineering + Design System + Spec-Driven Development
+Objetivo: Reconstruir o portfólio do zero, utilizando agentes especializados em IDEs, com arquitetura modular, identidade visual autoral, experiência premium e infraestrutura escalável.
+
+A proposta não é simplesmente desenvolver uma nova versão do site atual. É construir um ecossistema digital que posicione sua atuação como Diretor de Criação, Creative Strategist, Art Director e especialista em Creative Technology e Generative AI.
+
+⸻
+
+1. Análise estratégica
+
+1.1. Diagnóstico do portfólio atual
+
+Analisei a versão pública de  ⁠portfoliodanilo.com, incluindo a Home e a página de projetos, além de consultar a estrutura e a documentação do repositório associado.
+
+O site já apresenta uma identidade visual reconhecível e uma quantidade relevante de trabalhos.
+
+Pontos positivos
+
+Dimensão	Observação
+Identidade	Linguagem visual própria, com Ghost Design System
+Branding	Experiência com marcas relevantes
+Portfólio	Diversidade de projetos e disciplinas
+Motion	Utilização de animações e experiências interativas
+Tecnologia	Integração de Three.js, React e inteligência artificial
+Conteúdo	Projetos de branding, campanhas, vídeos e tecnologia
+
+A página pública apresenta três territórios principais:
+
+* Brand & Campaigns.
+* Videos & Motions.
+* Websites & Tech.
+
+Também identifiquei 15 projetos apresentados na página de portfólio consultada.  
+
+Oportunidades para a reconstrução
+
+A nova arquitetura deverá resolver principalmente seis desafios:
+
+01. Posicionamento profissional
+
+O portfólio precisa comunicar liderança criativa e capacidade estratégica, não apenas capacidade de execução visual.
+
+02. Arquitetura de informação
+
+Os projetos precisam ser organizados para demonstrar raciocínio, contexto, estratégia, conceito, execução e resultados.
+
+03. Experiência editorial
+
+Cada case deverá funcionar como uma experiência independente, com narrativa visual própria.
+
+04. Performance
+
+A experiência visual não pode depender de processamento excessivo de WebGL, vídeos pesados ou animações constantes.
+
+05. Gestão de conteúdo
+
+Adicionar, atualizar e reorganizar projetos não deve exigir alterações frequentes no código.
+
+06. Arquitetura preparada para IA
+
+O projeto deverá nascer preparado para integrar agentes, automações, processamento de mídia e ferramentas de inteligência artificial.
+
+Diretriz principal
+
+O novo site precisa vender três capacidades:
+
+1. Pensamento estratégico: transformar desafios de negócio em soluções criativas.
+2. Liderança criativa: organizar pessoas, processos e operações de criação.
+3. Domínio tecnológico: conectar design, tecnologia, inteligência artificial e inovação.
+
+⸻
+
+2. Arquitetura conceitual do novo projeto
+
+2.1. Estrutura de navegação
+
+Minha recomendação é uma arquitetura editorial, com menos páginas institucionais tradicionais e mais profundidade nos projetos.
+
+Página	Função
+/	Home / apresentação e posicionamento
+/sobre	Trajetória, experiência e liderança
+/portfolio	Todos os projetos
+/projetos/[slug]	Cases completos
+/expertise	Especialidades e capacidades
+/creative-technology	IA, experimentação e tecnologia
+/contato	Contato profissional
+/curriculo	Currículo executivo
+/lab	Experimentos e projetos autorais
+
+Home — arquitetura de conteúdo
+
+1. Hero manifesto.
+2. Apresentação profissional.
+3. Projetos em destaque.
+4. Territórios de atuação.
+5. Creative Leadership.
+6. Creative Technology & AI.
+7. Marcas e experiências.
+8. Apresentação resumida da trajetória.
+9. CTA de contato.
+
+Uma decisão importante: não transformar a Home em um catálogo de trabalhos.
+
+Ela deve funcionar como uma apresentação de posicionamento profissional.
+
+2.2. Arquitetura dos cases
+
+Cada projeto deverá utilizar uma estrutura editorial modular.
+
+Exemplo:
+
+PROJECT CASE
+│
+├── 01. HERO
+│   ├── Project Title
+│   ├── Client
+│   ├── Category
+│   └── Hero Media
+│
+├── 02. PROJECT OVERVIEW
+│   ├── Context
+│   ├── Challenge
+│   └── Objectives
+│
+├── 03. STRATEGIC THINKING
+│   ├── Insights
+│   ├── Strategy
+│   └── Creative Direction
+│
+├── 04. CREATIVE DEVELOPMENT
+│   ├── Concept
+│   ├── Art Direction
+│   ├── Visual Identity
+│   └── Execution
+│
+├── 05. EXPERIENCE
+│   ├── Images
+│   ├── Videos
+│   ├── Motion Design
+│   ├── Interactive Media
+│   └── Fullscreen Experiences
+│
+├── 06. RESULTS
+│   ├── Deliverables
+│   ├── Impact
+│   └── Achievements
+│
+├── 07. CREDITS
+│
+└── 08. NEXT PROJECT
+
+Recomendação: construir um sistema de blocos editoriais reutilizáveis, permitindo diferentes composições para cada case sem criar uma página completamente nova para cada projeto.
+
+⸻
+
+3. Stack tecnológica recomendada
+
+A reconstrução deve aproveitar a experiência tecnológica existente, sem carregar automaticamente todas as decisões e complexidades do projeto anterior.
+
+Consultei o package.json atual do repositório. Ele já utiliza Next.js 16.4.6, React 19.3.1, TypeScript, Tailwind CSS 4, Three.js, GSAP, Motion, Supabase e ferramentas de testes.  
+
+Minha recomendação é:
+
+Camada	Tecnologia	Responsabilidade
+Framework	Next.js 16	Aplicação e roteamento
+Interface	React 19	Componentização
+Linguagem	TypeScript	Segurança de tipos
+Styling	Tailwind CSS 4	Sistema visual
+Animation	GSAP + Motion	Interações e animações
+3D	Three.js + R3F	Experiências tridimensionais
+Smooth Scroll	Lenis	Experiência de navegação
+Database	Supabase	Conteúdo e dados
+Storage	Supabase Storage	Imagens e vídeos
+Validation	Zod	Validação de dados
+Testing	Playwright + Jest	Testes
+Version Control	GitHub	Versionamento
+Deployment	Vercel ou infraestrutura atual validada	Publicação
+
+Uma decisão arquitetural importante
+
+Não recomendo começar reconstruindo também todo o painel administrativo.
+
+O ideal é separar:
+
+Fase 1: construir o novo site público com conteúdo estruturado e validado.
+
+Fase 2: implementar CMS e painel administrativo quando os modelos de conteúdo estiverem estabilizados.
+
+Isso reduz significativamente a complexidade inicial.
+
+O Supabase pode continuar como infraestrutura de dados, mas não precisa ser uma dependência obrigatória para renderizar todas as páginas públicas.
+
+⸻
+
+4. Arquitetura multiagentes
+
+Esta é a parte mais importante do projeto.
+
+Em vez de utilizar um único agente responsável por todas as decisões, recomendo construir uma equipe de agentes especializados.
+
+4.1. Organização dos agentes
+
+A arquitetura terá quatro níveis.
+
+NÍVEL 1 — ORCHESTRATION
+
+AGENT 00 — PROJECT ORCHESTRATOR
+
+Responsabilidade: coordenar o projeto inteiro.
+
+O que faz:
+
+* Interpretar solicitações.
+* Distribuir tarefas.
+* Consultar agentes especialistas.
+* Controlar dependências.
+* Gerenciar aprovações.
+* Consolidar resultados.
+* Verificar critérios de conclusão.
+
+Não deve:
+
+* Implementar tudo sozinho.
+* Ignorar validações.
+* Alterar arquitetura sem aprovação.
+* Executar deploy de produção sem autorização.
+
+NÍVEL 2 — STRATEGY & DESIGN
+
+ID	Agente	Responsabilidade
+AG-01	Creative Strategist	Posicionamento e estratégia
+AG-02	UX Architect	Arquitetura de informação e experiência
+AG-03	Art Director	Direção de arte e linguagem visual
+AG-04	Design System Architect	Tokens, componentes e padrões
+AG-05	Content Strategist	Narrativa, copy e arquitetura dos cases
+
+NÍVEL 3 — ENGINEERING
+
+ID	Agente	Responsabilidade
+AG-06	Frontend Architect	Arquitetura Next.js e React
+AG-07	UI Engineer	Implementação de interfaces
+AG-08	Motion Engineer	Animações e interações
+AG-09	Creative Technology Engineer	Three.js, WebGL e experiências
+AG-10	Backend Engineer	APIs, Supabase e dados
+AG-11	Media Pipeline Engineer	Imagens, vídeos e otimização
+AG-12	SEO Engineer	SEO técnico e indexação
+
+NÍVEL 4 — QUALITY & GOVERNANCE
+
+ID	Agente	Responsabilidade
+AG-13	Accessibility Auditor	WCAG e acessibilidade
+AG-14	Performance Auditor	Core Web Vitals e otimização
+AG-15	Security Auditor	Segurança e infraestrutura
+AG-16	QA Engineer	Testes funcionais e regressão
+AG-17	Visual QA Agent	Comparação visual e responsividade
+AG-18	Release Manager	Build, deploy e validação final
+
+Importante: esses 19 agentes são papéis lógicos, não necessariamente 19 processos simultâneos. O orquestrador deverá ativar somente os especialistas necessários para cada tarefa.
+
+Isso reduz consumo de tokens, conflitos entre agentes e custos operacionais.
+
+⸻
+
+5. Agent Skills: biblioteca de capacidades
+
+Os agentes não devem depender exclusivamente de prompts longos.
+
+Cada especialidade deverá possuir Skills reutilizáveis.
+
+Minha recomendação é utilizar Progressive Disclosure: carregar instruções principais quando necessário e referências técnicas sob demanda.
+
+Skills propostas
+
+Skill	Função
+portfolio-context	Mapear arquitetura e contexto
+creative-strategy	Desenvolver posicionamento
+portfolio-ux-audit	Auditar experiência
+art-direction	Orientar decisões visuais
+ghost-design-system	Aplicar identidade visual
+case-study-builder	Estruturar cases
+nextjs-architecture	Orientar arquitetura Next.js
+component-engineering	Criar componentes
+motion-engineering	Projetar animações
+threejs-experience	Desenvolver experiências 3D
+media-optimization	Otimizar imagens e vídeos
+seo-optimization	Otimizar SEO
+accessibility-audit	Auditar acessibilidade
+performance-audit	Avaliar performance
+visual-regression	Validar diferenças visuais
+security-review	Revisar segurança
+deployment-validation	Validar publicação
+
+5.1. Estrutura de uma Skill
+
+Cada Skill deverá seguir um contrato consistente.
+
+skill-name/
+│
+├── SKILL.md
+│
+├── references/
+│   ├── guidelines.md
+│   ├── technical-reference.md
+│   └── examples.md
+│
+├── scripts/
+│   └── validation.py
+│
+└── assets/
+    └── templates/
+
+O SKILL.md deverá conter:
+
+1. O que faz.
+2. Quando usar.
+3. Quando não usar.
+4. Entradas necessárias.
+5. Procedimento operacional.
+6. Ferramentas permitidas.
+7. Formato de saída.
+8. Critérios de validação.
+9. Condição de conclusão.
+
+⸻
+
+6. Design System — GHOST 2.0
+
+Minha recomendação é não abandonar a identidade existente, mas evoluí-la.
+
+O repositório já possui um Ghost Design System documentado, com tokens, tipografia, cores, animações, espaçamentos e regras de composição.
+
+A nova versão deverá utilizá-lo como ponto de partida, não como uma limitação criativa.
+
+Direção visual
+
+Princípios
+
+* Presença sem ruído.
+* Sofisticação invisível.
+* Tipografia como elemento de direção de arte.
+* Grandes espaços negativos.
+* Composições editoriais assimétricas.
+* Mídia em full bleed.
+* Movimento com propósito.
+* Experiências imersivas sem comprometer a usabilidade.
+
+Paleta inicial
+
+Token	Cor
+Void Black	#040013
+Deep Neutral	#0B0D3A
+Brand Blue	#0048FF
+Ghost Cyan	#4FE6FF
+Text Primary	#FCFFFF
+Pink Accent	#F501D3
+
+Tipografia
+
+* Manrope Variable: interface e títulos.
+* Fonte monoespaçada: metadados e informações técnicas.
+
+Sistema de motion
+
+Criar uma biblioteca centralizada de:
+
+* Page transitions.
+* Scroll reveals.
+* Hover interactions.
+* Image transitions.
+* Video transitions.
+* Cursor interactions.
+* 3D interactions.
+* Loading states.
+
+Todas as animações devem respeitar prefers-reduced-motion.
+
+⸻
+
+7. Arquitetura de conteúdo e dados
+
+A estrutura de conteúdo deverá ser independente da apresentação visual.
+
+Sugestão:
+
+CONTENT ARCHITECTURE
+│
+├── PROFILE
+│   ├── Personal Information
+│   ├── Professional Positioning
+│   ├── Biography
+│   └── Contact
+│
+├── EXPERIENCE
+│   ├── Companies
+│   ├── Roles
+│   ├── Periods
+│   └── Achievements
+│
+├── PROJECTS
+│   ├── Branding
+│   ├── Campaigns
+│   ├── Motion
+│   ├── Websites
+│   └── Creative Technology
+│
+├── CLIENTS
+│
+├── EXPERTISE
+│
+├── MEDIA
+│   ├── Images
+│   ├── Videos
+│   ├── Animations
+│   └── Interactive Experiences
+│
+└── SEO
+    ├── Metadata
+    ├── Open Graph
+    ├── Structured Data
+    └── Sitemap
+
+Modelo de projeto
+
+Exemplo conceitual em TypeScript:
+
+type Project = {
+  id: string;
+  slug: string;
+  title: string;
+  client: string;
+  category:
+    | "branding"
+    | "campaign"
+    | "motion"
+    | "web"
+    | "creative-technology";
+  year: number;
+  featured: boolean;
+  published: boolean;
+  summary: string;
+  challenge: string;
+  strategy: string;
+  concept: string;
+  services: string[];
+  credits: string[];
+  cover: MediaAsset;
+  sections: ProjectSection[];
+  seo: {
+    title: string;
+    description: string;
+    ogImage: string;
+  };
+};
+type MediaAsset = {
+  type: "image" | "video" | "html";
+  src: string;
+  poster?: string;
+  alt?: string;
+  aspectRatio?: string;
+};
+type ProjectSection = {
+  id: string;
+  type:
+    | "text"
+    | "image"
+    | "video"
+    | "gallery"
+    | "fullwidth"
+    | "embed"
+    | "interactive";
+  content: Record<string, unknown>;
+};
+
+Esse modelo é uma proposta inicial. O agente responsável pelos dados deverá validá-lo contra os cases reais antes de congelar o schema.
+
+⸻
+
+8. Estrutura completa do repositório
+
+Recomendo criar um repositório independente, sem sobrescrever o projeto atual.
+
+Nome sugerido:
+
+GHOST-PORTFOLIO-2.0
+
+Estrutura:
+
+GHOST-PORTFOLIO-2.0/
+│
+├── .agents/
+│   │
+│   ├── agents/
+│   │   ├── orchestrator.md
+│   │   ├── creative-strategist.md
+│   │   ├── ux-architect.md
+│   │   ├── art-director.md
+│   │   ├── design-system-architect.md
+│   │   ├── frontend-architect.md
+│   │   ├── ui-engineer.md
+│   │   ├── motion-engineer.md
+│   │   ├── creative-tech-engineer.md
+│   │   ├── backend-engineer.md
+│   │   ├── seo-engineer.md
+│   │   ├── qa-engineer.md
+│   │   ├── security-auditor.md
+│   │   └── release-manager.md
+│   │
+│   ├── skills/
+│   │   ├── portfolio-context/
+│   │   ├── creative-strategy/
+│   │   ├── portfolio-ux-audit/
+│   │   ├── ghost-design-system/
+│   │   ├── case-study-builder/
+│   │   ├── component-engineering/
+│   │   ├── motion-engineering/
+│   │   ├── threejs-experience/
+│   │   ├── media-optimization/
+│   │   ├── seo-optimization/
+│   │   ├── accessibility-audit/
+│   │   ├── performance-audit/
+│   │   └── visual-regression/
+│   │
+│   ├── rules/
+│   │   ├── global-rules.md
+│   │   ├── architecture-rules.md
+│   │   ├── design-rules.md
+│   │   ├── coding-rules.md
+│   │   ├── security-rules.md
+│   │   └── quality-rules.md
+│   │
+│   └── workflows/
+│       ├── 00-project-onboarding.md
+│       ├── 01-discovery.md
+│       ├── 02-creative-strategy.md
+│       ├── 03-ux-architecture.md
+│       ├── 04-design-system.md
+│       ├── 05-prototyping.md
+│       ├── 06-frontend-development.md
+│       ├── 07-backend-development.md
+│       ├── 08-motion-development.md
+│       ├── 09-content-migration.md
+│       ├── 10-performance-audit.md
+│       ├── 11-accessibility-audit.md
+│       ├── 12-visual-qa.md
+│       ├── 13-pre-release.md
+│       └── 14-deployment.md
+│
+├── .context/
+│   ├── PROJECT-CONSTITUTION.md
+│   ├── PROJECT-BRIEF.md
+│   ├── PRODUCT-STRATEGY.md
+│   ├── INFORMATION-ARCHITECTURE.md
+│   ├── DESIGN-SYSTEM.md
+│   ├── TECHNICAL-ARCHITECTURE.md
+│   ├── CONTENT-MODEL.md
+│   ├── DATABASE-SCHEMA.md
+│   ├── ASSET-MANIFEST.md
+│   ├── DECISION-LOG.md
+│   └── active-state.md
+│
+├── .specify/
+│   ├── memory/
+│   │   └── constitution.md
+│   ├── specs/
+│   └── plans/
+│
+├── docs/
+│   ├── research/
+│   ├── architecture/
+│   ├── design/
+│   ├── implementation/
+│   ├── audits/
+│   └── release/
+│
+├── public/
+│   ├── fonts/
+│   ├── images/
+│   ├── videos/
+│   ├── icons/
+│   └── models/
+│
+├── src/
+│   ├── app/
+│   │   ├── (website)/
+│   │   │   ├── page.tsx
+│   │   │   ├── sobre/
+│   │   │   ├── portfolio/
+│   │   │   ├── projetos/
+│   │   │   ├── expertise/
+│   │   │   ├── creative-technology/
+│   │   │   ├── contato/
+│   │   │   ├── curriculo/
+│   │   │   └── lab/
+│   │   │
+│   │   ├── api/
+│   │   ├── layout.tsx
+│   │   ├── not-found.tsx
+│   │   └── global-error.tsx
+│   │
+│   ├── components/
+│   │   ├── layout/
+│   │   ├── navigation/
+│   │   ├── home/
+│   │   ├── portfolio/
+│   │   ├── projects/
+│   │   ├── media/
+│   │   ├── motion/
+│   │   ├── three/
+│   │   ├── typography/
+│   │   └── ui/
+│   │
+│   ├── features/
+│   │   ├── projects/
+│   │   ├── profile/
+│   │   ├── experience/
+│   │   ├── contact/
+│   │   └── media/
+│   │
+│   ├── lib/
+│   │   ├── data/
+│   │   ├── supabase/
+│   │   ├── seo/
+│   │   ├── analytics/
+│   │   ├── media/
+│   │   └── validation/
+│   │
+│   ├── hooks/
+│   ├── providers/
+│   ├── config/
+│   ├── types/
+│   └── styles/
+│
+├── scripts/
+│   ├── audit-assets.ts
+│   ├── migrate-content.ts
+│   ├── validate-projects.ts
+│   └── generate-sitemap.ts
+│
+├── tests/
+│   ├── unit/
+│   ├── integration/
+│   ├── e2e/
+│   └── visual/
+│
+├── .env.example
+├── AGENTS.md
+├── package.json
+├── pnpm-lock.yaml
+├── tsconfig.json
+├── next.config.ts
+├── playwright.config.ts
+└── README.md
+
+Essa é uma estrutura-alvo. O agente de arquitetura deverá ajustar os diretórios às convenções reais da versão do framework e das IDEs selecionadas.
+
+⸻
+
+9. Workflows de desenvolvimento
+
+A execução deverá seguir um fluxo controlado.
+
+Protocolo PREVC
+
+Adotaria o protocolo:
+
+P — Planning
+
+* Entender a solicitação.
+* Consultar documentação.
+* Analisar dependências.
+* Definir entregáveis.
+
+R — Review
+
+* Submeter plano aos agentes especialistas.
+* Identificar conflitos.
+* Revisar riscos.
+* Solicitar aprovação humana.
+
+E — Execution
+
+* Executar tarefas aprovadas.
+* Delegar atividades.
+* Implementar componentes.
+* Atualizar documentação.
+
+V — Validation
+
+* Testar funcionalidades.
+* Validar código.
+* Verificar design.
+* Avaliar performance.
+* Executar testes visuais.
+
+C — Confirmation
+
+* Consolidar resultados.
+* Apresentar evidências.
+* Registrar pendências.
+* Solicitar autorização para publicação.
+
+Estados obrigatórios
+
+IDLE
+  ↓
+DISCOVERY
+  ↓
+ANALYSIS
+  ↓
+PLANNING
+  ↓
+REVIEW_REQUIRED
+  ↓
+APPROVED
+  ↓
+EXECUTION
+  ↓
+VALIDATION
+  ↓
+VALIDATION_FAILED ──→ FIX_REQUIRED
+  ↓
+VALIDATION_PASSED
+  ↓
+HUMAN_CONFIRMATION
+  ↓
+COMPLETED
+
+O agente não poderá avançar automaticamente quando houver falhas críticas ou decisões arquiteturais pendentes.
+
+⸻
+
+10. Integrações MCP
+
+Os MCPs devem funcionar como ferramentas especializadas dos agentes.
+
+MCP	Agente	Aplicação
+Context7	Todos os engenheiros	Documentação oficial
+GitHub	Orchestrator	Repositório e versionamento
+Filesystem	Engineering	Arquivos do projeto
+Browser / Chrome DevTools	QA	Inspeção visual e testes
+Supabase	Backend	Dados e Storage
+Figma	Design	Componentes e protótipos
+Playwright	QA	Testes automatizados
+
+Regra importante
+
+Não disponibilizar todos os MCPs para todos os agentes.
+
+Cada agente deve receber somente as ferramentas necessárias à sua função.
+
+Exemplo:
+
+* Art Director: Figma, Filesystem e documentação visual.
+* Frontend Engineer: Context7, Filesystem e GitHub.
+* Backend Engineer: Supabase, Context7 e GitHub.
+* QA Engineer: Playwright e Browser.
+* Orchestrator: GitHub, documentação e ferramentas de coordenação.
+
+Isso reduz permissões desnecessárias e riscos operacionais.
+
+⸻
+
+11. Fases de implementação
+
+Fase	Entrega	Prioridade
+00	Discovery e auditoria do site atual	P0
+01	Estratégia e posicionamento	P0
+02	Arquitetura UX/UI	P0
+03	Design System 2.0	P0
+04	Protótipos e validação visual	P0
+05	Arquitetura técnica	P0
+06	Desenvolvimento da Home	P1
+07	Desenvolvimento do Portfolio	P1
+08	Templates de Cases	P1
+09	Sobre e Expertise	P1
+10	Creative Technology e Lab	P2
+11	SEO e performance	P1
+12	Migração de conteúdo	P1
+13	QA e testes	P0
+14	Deploy e monitoramento	P0
+
+Estratégia de lançamento: publicar primeiro uma versão completa e funcional, priorizando Home, Sobre, Portfolio, Cases e Contato. Recursos experimentais devem entrar somente quando estiverem maduros.
+
+⸻
+
+12. Agent-Skills Knowledge Hub
+
+Um ponto importante: não precisamos construir todas as Skills do zero.
+
+Consultei o repositório de conhecimento que você mantém:
+
+⁠Agent-Skills-Knowledge-Hub
+
+Encontrei um recurso especialmente relevante:
+
+Portfolio Design Auditor — v1.0.0
+
+Ele já contempla um fluxo:
+
+CONTEXT → AUDIT → APPROVAL → PLAN → IMPLEMENT → VALIDATE → REPORT
+
+Também possui capacidades relacionadas a:
+
+* Design Audit.
+* UX/UI.
+* Motion.
+* Mobile.
+* Apple Design Principles.
+* Prototyping.
+* Animation Engineering.
+
+O pacote também documenta a separação entre Context Analyst, Design Auditor, Implementation Planner, IDE Implementation Agent e Audit Validator.
+
+Minha recomendação é reutilizar esse pacote como base para a equipe de design e qualidade, adaptando suas Skills ao novo projeto.
+
+Não é necessário duplicar funcionalidades já existentes.
+
+⸻
+
+13. PROMPT MASTER — Inicialização do projeto
+
+O prompt abaixo é a instrução principal para entregar a arquitetura aos agentes IDE.
+
+Ele foi estruturado para Google Antigravity, Claude Code, Cursor e Codex.
+
+Objetivo: fazer o agente analisar o site atual, estudar o repositório, consultar o Knowledge Hub, elaborar a arquitetura e preparar o novo projeto sem modificar a produção.
+
+ROLE: GHOST PORTFOLIO 2.0 — PRINCIPAL ARCHITECT & AGENT ORCHESTRATOR
+
+You are a Principal Software Architect, Senior Creative Technologist, Multi-Agent Systems Engineer and Digital Experience Architect.
+
+Your mission is to architect a completely new portfolio platform for Danilo Novais.
+
+You must operate as an autonomous multi-agent engineering system with strict human approval gates.
+
+Your objective is not to redesign isolated pages.
+
+Your objective is to research, architect, specify and prepare an entirely new digital portfolio ecosystem.
+
+⸻
+
+1. PROJECT CONTEXT
+
+Current website:
+
+https://portfoliodanilo.com
+
+Current repository:
+
+https://github.com/danilonovaisv/PORTFOLIO-DANILO-FINAL
+
+Agent knowledge repository:
+
+https://github.com/danilonovaisv/Agent-Skills-Knowledge-Hub
+
+New project:
+
+GHOST-PORTFOLIO-2.0
+
+Professional positioning:
+
+* Senior Creative Director
+* Head of Creation
+* Creative Strategist
+* Art Director
+* Creative Technology
+* Generative AI
+* Creative Operations
+* Brand Strategy
+* Digital Experience Design
+
+The new platform must communicate strategic thinking, creative leadership, visual excellence and technological innovation.
+
+⸻
+
+2. NON-NEGOTIABLE RULES
+
+1. Never modify the existing production website.
+2. Never overwrite the original repository.
+3. Create an independent architecture for the new project.
+4. Inspect existing code before making technical assumptions.
+5. Preserve relevant creative assets, content and intellectual property.
+6. Never invent project results, clients, metrics or professional achievements.
+7. Use Context7 before implementing framework-specific solutions.
+8. Inspect the Agent-Skills-Knowledge-Hub before creating new Skills.
+9. Reuse existing Skills whenever appropriate.
+10. Keep all documentation and implementation decisions traceable.
+11. Never expose environment variables, secrets or credentials.
+12. Require human approval before destructive operations, infrastructure changes and production deployment.
+
+⸻
+
+3. PHASE 00 — DISCOVERY
+
+Activate:
+
+* Portfolio Context Analyst
+* Creative Strategist
+* UX Architect
+* Technical Architect
+
+Inspect:
+
+A. Current website:
+
+* Home
+* About
+* Portfolio
+* Project details
+* Navigation
+* Interactions
+* Animations
+* Responsive behavior
+* Accessibility
+* SEO
+
+B. Existing repository:
+
+* Project structure
+* Framework
+* Dependencies
+* Design system
+* Components
+* Data models
+* Storage
+* APIs
+* Deployment
+* Existing agents
+* Skills
+* Rules
+* Workflows
+* Tests
+
+C. Knowledge repository:
+
+Inspect:
+
+* contents/agents
+* contents/rules
+* contents/scripts
+* contents/skills
+* contents/squads
+* contents/workflows
+
+Prioritize the Portfolio Design Auditor package and identify reusable capabilities.
+
+Deliver:
+
+DISCOVERY_REPORT.md
+
+Include:
+
+* Current architecture
+* Existing capabilities
+* Technical limitations
+* Creative opportunities
+* Reusable assets
+* Reusable Skills
+* Migration risks
+* Recommended improvements
+
+Clearly distinguish verified facts from assumptions.
+
+⸻
+
+4. PHASE 01 — CREATIVE STRATEGY
+
+Activate:
+
+* Creative Strategist
+* Art Director
+* Content Strategist
+
+Develop:
+
+* Professional positioning
+* Brand narrative
+* Value proposition
+* Audience definition
+* Information architecture
+* Content strategy
+* Creative territories
+* Visual direction
+
+The portfolio must position Danilo as a creative leader rather than exclusively as a designer or execution professional.
+
+Deliver:
+
+* PRODUCT-STRATEGY.md
+* CREATIVE-DIRECTION.md
+* CONTENT-STRATEGY.md
+* INFORMATION-ARCHITECTURE.md
+
+⸻
+
+5. PHASE 02 — TECHNICAL ARCHITECTURE
+
+Activate:
+
+* Frontend Architect
+* Backend Architect
+* Creative Technology Engineer
+* Security Architect
+
+Evaluate:
+
+* Next.js App Router
+* React
+* TypeScript
+* Tailwind CSS
+* GSAP
+* Motion
+* Three.js
+* React Three Fiber
+* Supabase
+* Media infrastructure
+* Deployment options
+
+Use Context7 to validate current official documentation.
+
+Do not introduce dependencies without technical justification.
+
+Design:
+
+* Application architecture
+* Component architecture
+* Data architecture
+* Content model
+* Media pipeline
+* API boundaries
+* Authentication boundaries
+* Security policies
+* Caching strategy
+* Deployment architecture
+
+Deliver:
+
+* TECHNICAL-ARCHITECTURE.md
+* COMPONENT-ARCHITECTURE.md
+* DATABASE-SCHEMA.md
+* SECURITY-ARCHITECTURE.md
+* MEDIA-ARCHITECTURE.md
+
+⸻
+
+6. PHASE 03 — AGENT ECOSYSTEM
+
+Create a modular multi-agent architecture.
+
+Required agents:
+
+1. Project Orchestrator
+2. Creative Strategist
+3. UX Architect
+4. Art Director
+5. Design System Architect
+6. Content Strategist
+7. Frontend Architect
+8. UI Engineer
+9. Motion Engineer
+10. Creative Technology Engineer
+11. Backend Engineer
+12. Media Pipeline Engineer
+13. SEO Engineer
+14. Accessibility Auditor
+15. Performance Auditor
+16. Security Auditor
+17. QA Engineer
+18. Visual QA Agent
+19. Release Manager
+
+Each agent must define:
+
+* Purpose
+* Responsibilities
+* Capabilities
+* Activation conditions
+* Anti-activation conditions
+* Required context
+* Available tools
+* Skills
+* Inputs
+* Outputs
+* Dependencies
+* Delegation rules
+* Validation requirements
+* Completion criteria
+
+Avoid unnecessary agent duplication.
+
+Use logical specialization and task-based delegation.
+
+⸻
+
+7. PHASE 04 — AGENT SKILLS
+
+Inspect the existing Knowledge Hub.
+
+Reuse suitable Skills.
+
+Create new Skills only when necessary.
+
+Each Skill must contain:
+
+* SKILL.md
+* YAML metadata
+* Purpose
+* When to use
+* When not to use
+* Operational instructions
+* Input contract
+* Output contract
+* Validation criteria
+
+Use Progressive Disclosure.
+
+Keep main instructions concise and load detailed references only when needed.
+
+⸻
+
+8. PHASE 05 — DESIGN SYSTEM
+
+Develop GHOST DESIGN SYSTEM 2.0.
+
+Preserve the established identity while evaluating improvements.
+
+Define:
+
+* Color tokens
+* Typography
+* Spacing
+* Layout
+* Responsive grids
+* Components
+* Interaction states
+* Animation vocabulary
+* Motion tokens
+* Accessibility
+* Media behavior
+
+Design principles:
+
+* Premium minimalism
+* Editorial composition
+* Cinematic storytelling
+* Invisible sophistication
+* Strong typography
+* Negative space
+* Purposeful motion
+* High-quality media presentation
+
+Do not sacrifice usability for visual effects.
+
+⸻
+
+9. PHASE 06 — PROJECT ARCHITECTURE
+
+Prepare the complete new repository structure.
+
+Include:
+
+* Source code organization
+* Agents
+* Skills
+* Rules
+* Workflows
+* Documentation
+* Tests
+* Assets
+* Configuration
+* Environment templates
+
+Keep IDE-specific configuration separate from shared project knowledge.
+
+Support adapters for:
+
+* Google Antigravity
+* Claude Code
+* Cursor
+* Codex
+
+Verify IDE-specific conventions against official documentation before generating configuration files.
+
+⸻
+
+10. PHASE 07 — WORKFLOW ORCHESTRATION
+
+Implement the PREVC protocol:
+
+PLANNING
+→ REVIEW
+→ EXECUTION
+→ VALIDATION
+→ CONFIRMATION
+
+Every workflow must define:
+
+* Trigger
+* Required context
+* Participating agents
+* Required Skills
+* Tools
+* Execution sequence
+* Dependencies
+* Approval gates
+* Failure conditions
+* Recovery strategy
+* Validation
+* Completion criteria
+
+No production deployment without explicit human approval.
+
+⸻
+
+11. PHASE 08 — QUALITY GATES
+
+Define validation criteria for:
+
+* TypeScript
+* ESLint
+* Unit tests
+* Integration tests
+* Playwright
+* Responsive behavior
+* Accessibility
+* SEO
+* Core Web Vitals
+* Image optimization
+* Video loading
+* WebGL performance
+* Reduced motion
+* Security
+* Build integrity
+
+Every validation must report:
+
+PASS
+FAIL
+NOT VERIFIED
+
+Never report a test as successful without execution evidence.
+
+⸻
+
+12. PHASE 09 — HUMAN APPROVAL
+
+After completing discovery and architecture:
+
+STOP.
+
+Present:
+
+1. Executive summary.
+2. Current website diagnosis.
+3. Recommended architecture.
+4. Proposed technology stack.
+5. Agent ecosystem.
+6. Skills inventory.
+7. Repository structure.
+8. Implementation roadmap.
+9. Risks and trade-offs.
+10. Estimated complexity.
+11. Required decisions.
+
+Wait for explicit human approval before starting application implementation.
+
+⸻
+
+13. FINAL DELIVERABLE
+
+Prepare an independent project architecture for:
+
+GHOST-PORTFOLIO-2.0
+
+The architecture must be:
+
+* Modular
+* Scalable
+* Maintainable
+* Secure
+* Agent-compatible
+* IDE-compatible
+* Performance-oriented
+* Design-system-driven
+* Documented
+* Testable
+
+The final result must be an actionable engineering blueprint, not merely a conceptual proposal.
+
+Operate with evidence, architectural discipline and creative excellence.
+
+The existing production portfolio must remain untouched.
+
+⸻
+
+14. Minha recomendação de execução
+
+Eu dividiria o trabalho em três grandes entregas.
+
+Entrega	Resultado
+A. Intelligence & Architecture	Auditoria, estratégia, documentação e agentes
+B. Creative Experience	Design System, protótipos e experiência visual
+C. Engineering & Launch	Desenvolvimento, migração, testes e publicação
+
+Ordem recomendada
+
+1. Criar o novo repositório.
+2. Executar o Master Agent Mission.
+3. Aprovar a arquitetura.
+4. Construir o Design System 2.0.
+5. Criar os protótipos da Home e dos Cases.
+6. Validar a experiência visual.
+7. Implementar o frontend.
+8. Integrar conteúdo e mídia.
+9. Executar QA.
+10. Publicar em ambiente independente.
+11. Validar domínio e realizar a substituição somente após aprovação.
+
+Não recomendo começar pelo código. A primeira entrega deve ser um protótipo visual aprovado e uma arquitetura técnica validada.
+
+⸻
+
+15. Critérios de sucesso do novo portfólio
+
+O projeto deverá ser avaliado por estes indicadores:
+
+Dimensão	Meta
+Performance	Lighthouse ≥ 90 como objetivo inicial
+Accessibility	WCAG 2.2 AA
+SEO	Estrutura técnica completa
+Mobile	Experiência mobile-first
+Motion	100% compatível com reduced motion
+Content	Cases modulares
+Architecture	Componentes reutilizáveis
+Maintainability	Documentação e agentes especializados
+Security	Segredos protegidos e permissões mínimas
+Quality	Testes automatizados e regressão visual
+
+As metas de Lighthouse deverão ser medidas separadamente para Performance, Accessibility, Best Practices e SEO, em dispositivos móveis e desktop.
+
+⸻
+
+16. Decisão estratégica final
+
+Minha recomendação é utilizar:
+
+* Google Antigravity: orquestração e execução das missões multiagentes.
+* Claude Code: engenharia, implementação e revisão arquitetural.
+* Codex: tarefas de desenvolvimento, testes e revisão de código.
+* GitHub: fonte única de verdade do projeto.
+* Context7: documentação técnica atualizada.
+* Agent-Skills-Knowledge-Hub: biblioteca de capacidades reutilizáveis.
+
+A arquitetura deve ser compartilhada entre as IDEs, sem criar três ecossistemas diferentes de agentes.
+
+O princípio central: um projeto, uma arquitetura, um Design System, uma biblioteca de Skills e múltiplas IDEs trabalhando sobre as mesmas regras.
+
+⸻
+
+Próxima etapa recomendada: executar o Master Agent Mission no Antigravity para produzir a documentação arquitetural, o inventário de agentes e o plano de construção antes de iniciar a implementação visual.
