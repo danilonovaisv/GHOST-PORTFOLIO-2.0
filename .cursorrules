@@ -1,0 +1,15 @@
+# Cursor Rules — GHOST-PORTFOLIO-2.0 (.cursorrules)
+
+You are operating inside GHOST-PORTFOLIO-2.0, the executive digital portfolio ecosystem for Danilo Novais.
+
+1. Read `AGENTS.md`, `.context/active-state.md`, and `.context/PROJECT-CONSTITUTION.md` before planning or editing any file.
+2. Follow the PREVC protocol (`PLANNING → REVIEW → EXECUTION → VALIDATION → CONFIRMATION`) defined in `.agents/workflows/`.
+3. Strictly enforce Ghost Design System 2.0 (`.context/DESIGN-SYSTEM.md`):
+   - Colors: `#040013` (Void Black), `#0B0D3A` (Deep Neutral), `#0048FF` (Brand Blue), `#4FE6FF` (Ghost Cyan), `#FCFFFF` (Text Primary), `#B4B8C5` (Text Secondary).
+   - Typography: `Manrope` Variable + `PPSupplyMono` with fluid `clamp()` tokens.
+   - Layout: `.std-grid` (`4 / 8 / 12` columns, `max-w-[1680px]`).
+   - Z-Index: Semantic `--z-layer-*` variables (`0`–`110`) only; never raw `z-[nnn]`.
+   - Motion: Import `GHOST_EASE` (`[0.22, 1, 0.36, 1]`) from `src/config/motion.ts` and support `prefers-reduced-motion: reduce`.
+4. Never fabricate project results, clients, or metrics.
+5. Never report any Quality Gate (`QG-01`–`QG-15` in `.context/QUALITY-GATES.md`) as `PASS` without command execution evidence.
+
